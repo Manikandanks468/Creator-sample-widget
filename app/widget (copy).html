@@ -1,0 +1,483 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="contact-form" id="myForm">
+        <img alt="" class="avatar" src="https://i.postimg.cc/zDyt7KCv/a1.jpg">
+        <b><h2>Contact Form</h2></b>
+        <form id="itsMyForm">
+            <p>Name</p><input type="text" id="EnterName" name="EnterName" placeholder="Enter Your Full Name">
+            <p>Email</p><input type="text" id="EnterEmail" name="EnterEmail" placeholder="Enter Your Email">
+            <p>Age</p><input type="number" id="EnterAge" name="EnterAge" placeholder="Enter Your Age">
+            <p>Mobile</p><input type="text" id="EnterMobile" name="EnterMobile" placeholder="Enter Your Mobile Number">
+            <button class="Submitbutton" id="SubmitReset" type="button" onclick="myfunctionAdd()">S U B M I T</button><br><br><br>
+<button class="Resetbutton" id="SubmitReset1" type="button" onclick="resetForm()">R E S E T</button>
+        </form>
+    </div>
+<!--//___________________________________-->
+    <div class="contact-form" id="myFormupdate">
+        <img alt="" class="avatar" src="https://i.postimg.cc/zDyt7KCv/a1.jpg">
+        <b><h2>Update Form</h2></b>
+        <form id="itsMyEditForm">
+            <p>Name</p><input type="text" id="UpdateName" name="UpdateName" placeholder="Update Your Name">
+            <p>Email</p><input type="text" id="UpdateEmail" name="UpdateEmail" placeholder="Update Your Email">
+            <p>Age</p><input type="number" id="UpdateAge" name="UpdateAge" placeholder="Update Your Age">
+            <p>Mobile</p><input type="text" id="UpdateMobile" name="UpdateMobile" placeholder="Update Your Mobile Number">
+            <input type="hidden" id="HiddenID" name="HiddenID">
+            <button class="Submitbutton" id="UpdateRecord" type="button">U P D A T E</button><br><br><br>
+<button class="Resetbutton" id="SubmitReset1" type="button" onclick="showtable()">C A N C E L</button>
+        </form>
+    </div>
+<!--__________________________________-->
+    <table id="customers">
+       <tr>
+         <th>&nbsp;&nbsp;P E R S O N&nbsp;&nbsp;N A M E&nbsp;&nbsp;</th>
+         <th>&nbsp;&nbsp;P H O N E&nbsp;&nbsp;N U M B E R&nbsp;&nbsp;</th>
+         <th>&nbsp;&nbsp;E M A I L&nbsp;&nbsp;A D D R E S S&nbsp;&nbsp;</th>
+         <th>&nbsp;&nbsp;A G E&nbsp;&nbsp;</th>
+         <th>&nbsp;&nbsp;ID&nbsp;&nbsp;</th>
+         <th>&nbsp;&nbsp;D E L E T E&nbsp;&nbsp;</th>
+         <th>&nbsp;&nbsp;E D I T&nbsp;&nbsp;</th>
+       </tr>
+     </table>
+    <div class="removeBtn" id="DeleteButtonn" >
+          <div onclick="DeleteDataa(this)" >
+             <div>
+             </div>
+                   <span><i class="fas fa-trash-alt"></i></span>
+          </div>
+          </div>
+     <div class="editBtn" id="EditButton" >
+          <div onclick="EditDataa(this)" >
+             <div>
+             </div>
+                   <span><i class="fas fa-edit"></i></span>
+          </div>
+          </div>
+</body>
+   <script >
+//        function myfunctionEdit(){
+//                            var EditNamee= document.getElementById("UpdateName").value;
+//                            var EditEmaill= document.getElementById("UpdateEmail").value;
+//                            var EditMobilee= document.getElementById("UpdateMobile").value;
+//                            var EditAgee= document.getElementById("UpdateAge").value;
+//                            var hiddenIDD= document.getElementById("HiddenID").value;
+                           
+//                             ZOHO.CREATOR.init()
+//                                                       .then(function(data) {
+//                                                       formData = {
+//                                                      "data" : {"Name":EditNamee,"Email" : EditEmaill, "Phone":EditMobilee, "Age":EditAgee} }
+//                                                                                   var config = {
+//                                                                                       reportName : "All_Widgets",
+//                                                                                       id : hiddenIDD,
+//                                                                                       data : formData
+//                                                                                   }
+//                                                                                                                ZOHO.CREATOR.API.updateRecord(config).then(function(response){
+//                                                                                                                    if(response.code == 3000){
+//                                                                                                                     console.log("Record Updated successfully");
+//                                                                                                                    }
+//                                                                                                                });
+//                                                                                                      //get all records API
+//                                                                                                      });
+//                          }
+//    function resetUpdateForm(){
+//         setTimeout(function(){document.getElementById("itsMyEditForm").reset(); }, 1000);
+//         document.getElementById("myFormupdate").style.display = "none";
+//     }
+//    var btnEdit = document.getElementById("UpdateRecord");
+//    btnEdit.addEventListener("click", myfunctionEdit);
+//      btnEdit.addEventListener("click", showtable);
+//     btnEdit.addEventListener("click", myfunction);
+
+      
+//       function EditDataa(rEdit) {
+//         document.getElementById("customers").style.display = "none";
+//                 document.getElementById("myFormupdate").style.display = "block";
+        
+//         var iEdit = rEdit.parentNode.parentNode.rowIndex;
+//           var x = document.getElementById("customers").rows[iEdit].cells;
+//         var editName= x[0].innerHTML;
+//         var editMobile= x[1].innerHTML;
+//         var editEmail= x[2].innerHTML;
+//         var editAge= x[3].innerHTML;
+//         var hidID= x[4].innerHTML;
+//         document.getElementById("UpdateName").value = editName;
+//         document.getElementById("UpdateEmail").value = editEmail;
+//         document.getElementById("UpdateAge").value = editAge;
+//         document.getElementById("UpdateMobile").value =editMobile;
+//         document.getElementById("HiddenID").value =hidID;
+// }
+   
+//     function myftn(){
+//         document.getElementById("customers").style.display = "none";
+//   document.getElementById("myForm").style.display = "block";
+  
+//     }
+   
+      function myfunctionAdd(){
+                           ZOHO.CREATOR.init()
+                           .then(function(data) {
+                                                           //Code goes here
+                          var Namee= document.getElementById("EnterName").value;
+                          var Emaill= document.getElementById("EnterEmail").value;
+                          var Mobilee= document.getElementById("EnterMobile").value;
+                          var Agee= document.getElementById("EnterAge").value;
+                          console.log(Namee);
+
+                                                               formData = {
+                                                               "data" : {"Name":Namee,"Email" : Emaill, "Phone":Mobilee, "Age":Agee} }
+                                                  var config = {
+                                                                  formName : "widget",
+                                                                  data : formData
+                                                           }
+                                                           ZOHO.CREATOR.API.addRecord(config).then(function(response){
+                                                               if(response.code == 3000){
+                                                                console.log("Record added successfully");
+                                                               }
+                                                           });
+                                                 //get all records API
+                                                 });
+                        }
+  //  function resetForm(){
+  //      setTimeout(function(){document.getElementById("itsMyForm").reset(); }, 1000);
+  //  }
+  //  var buttonbtn = document.getElementById("SubmitReset");
+  //    buttonbtn.addEventListener("click", myfunctionAdd);
+  //   buttonbtn.addEventListener("click", resetForm);
+  //  function showtable(){
+  //      document.getElementById("myForm").style.display = "none";
+  //  document.getElementById("customers").style.display = "block";
+  // document.getElementById("myFormupdate").style.display = "none";
+  //    }
+  //    function myfunction()
+  //    {
+  //    var rowCount = customers.rows.length;
+  //                        for (var i = rowCount - 1; i > 0; i--) {
+  //                            customers.deleteRow(i);
+  //                        }
+  //                 var array1 = [];
+  //                 ZOHO.CREATOR.init()
+  //                 .then(function(data) {
+  //                   //Code goes here
+  //                   var config = {
+  //             reportName : "All_Widgets",
+  //             criteria: "(ID!=0)",
+  //             page : 1,
+  //             pageSize : 10
+  //         }
+  //         ZOHO.CREATOR.API.getAllRecords(config).then(function(response){
+  //             //callback block
+  //             var a=0;
+  //             var roww = 1;
+  //             var recordArr = response.data;
+  //             for(var index in recordArr){
+  //                 var rec=(recordArr[index]);
+  //                 var val1=rec["Name"];
+  //                 var val2=rec["Phone"];
+  //                 var val3=rec["Email"];
+  //                 var val4=rec["Age"];
+  //                 var val5=rec["ID"];
+  //                 var display=document.getElementById("customers");
+  //                 var newRow=display.insertRow(roww);
+  //                 var cell1 =newRow.insertCell(0);
+  //                 var cell2 =newRow.insertCell(1);
+  //                 var cell3 =newRow.insertCell(2);
+  //                 var cell4 =newRow.insertCell(3);
+  //                 var cell5 =newRow.insertCell(4);
+  //                 var cell6 =newRow.insertCell(5);
+  //                 var cell7 =newRow.insertCell(6);
+  //                 cell1.innerHTML = val1 ;
+  //                 cell2.innerHTML = val2 ;
+  //                 cell3.innerHTML = val3 ;
+  //                 cell4.innerHTML = val4 ;
+  //                 cell5.innerHTML = val5 ;
+  //                 var div = document.getElementById("DeleteButtonn");
+  //                 cell6.innerHTML = div.innerHTML;
+  //               var div = document.getElementById("EditButton");
+  //              cell7.innerHTML = div.innerHTML;
+  //             a=a+1;
+  //             roww=roww+1;
+  //         }
+  //         });
+  //         });
+  //    }
+         
+
+     // Selecting button element
+   var btn = document.getElementById("myBtn");
+    btn.addEventListener("click", showtable);
+   btn.addEventListener("click", myfunction);
+   
+  //  function DeleteDataa(r){
+  //                           ZOHO.CREATOR.init()
+  //                          .then(function(data) {
+  //                                                            //Code goes here
+  //                          var getRow = document.getElementById("customers");
+  //                           var Cells = getRow.getElementsByTagName("td");
+  //                          var gotRowVal= Cells[4].innerText;
+  //                          var config = {
+  //                           reportName : "All_Widgets",
+  //                          criteria : "(ID =="+gotRowVal+")"
+  //                           }
+  //                           ZOHO.CREATOR.API.deleteRecord(config).then(function(response){
+  //                           console.log("Record has been deleted");
+  //                          });
+  //                         });
+  //                         var i = r.parentNode.parentNode.rowIndex;
+  //                             setTimeout(function(){document.getElementById("customers").deleteRow(i);}, 1000);
+  //                         }
+  
+  
+    </script>
+<style>
+    
+    .removeBtn{
+    display:none;
+    }
+        .editBtn{
+    display:none;
+    }
+
+.wrapper{
+  display: inline-flex;
+}
+.wrapper .icon{
+  margin: 0 20px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+    right:-900px;
+  top:70px;
+  z-index: 2;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon span{
+  display: block;
+  height: 60px;
+  width: 60px;
+  background: #fff;
+  border-radius: 40%;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon span i{
+  line-height: 60px;
+  font-size: 25px;
+}
+.wrapper .icon .tooltip{
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: #fff;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 25px;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon:hover .tooltip{
+  top: -70px;
+  opacity: 1;
+  pointer-events: auto;
+}
+.icon .tooltip:before{
+ font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: #fff;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon:hover span{
+  color: #fff;
+}
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip{
+ font-family: Arial, Helvetica, sans-serif;
+  text-shadow: 0px -1px 0px rgba(0,0,0,0.4);
+}
+.wrapper .facebook:hover span,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip:before{
+  background: #ffc475;
+}
+.wrapper .twitter:hover span,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip:before{
+  background: #ffc475;
+}
+body {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1515420043797-69a1bc7ee7a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTU0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.contact-form {
+ font-family: Arial, Helvetica, sans-serif;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    padding: 80px 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.avatar {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    top: calc(-80px/2);
+    left: 190px;
+}
+.contact-form h2 {
+    margin: 0;
+    padding: 0 0 20px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}
+.contact-form p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #fff;
+}
+.contact-form input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.contact-form button {
+    width: 40%;
+}
+.contact-form input[type=email], .contact-form input[type=password],.contact-form input[type=text],.contact-form input[type=number],.contact-form input[type=radio] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #ffc475;
+    font-size: 16px;
+}
+.Submitbutton {
+    height: 35px;
+    color: white;
+    font-size: 15px;
+    background: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    position: absolute;
+    right:250px;
+    bottom:40px;
+}
+.Submitbutton:hover {
+    background: #ffc475;
+        color:black;
+
+}
+.Resetbutton {
+    height: 35px;
+    color: white;
+    font-size: 15px;
+    background: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    position: absolute;
+    left:250px;
+    bottom:40px;
+}
+.Resetbutton:hover {
+    background: #ffc475;
+        color:black;
+
+}
+.contact-form a {
+    color: #ffc475;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+#customers {
+display:none;
+ font-family: Arial, Helvetica, sans-serif;
+   border-collapse: collapse;
+   width: 91%;
+  background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+border-collapse: separate; border-spacing: 0;
+ }
+ #customers td, #customers th {
+ border: 1px solid ;
+   padding: 8px;
+     color: #ffc475;
+    border-radius: 15px;
+       text-align:center;
+ }
+#customers tr:nth-child(even){background-color: black ;
+    border-radius: 15px;
+}
+ #customers tr:hover {background-color:black;
+    border-radius: 15px;
+    cursor:pointer;
+
+}
+ #customers th {
+ padding-top: 12px;
+   padding-bottom: 12px;
+   text-align: left;
+   background-color:Black;
+   color: #ffc475;
+   text-align:center;
+   border-radius: 15px;
+ }
+#customers td {
+    border: solid 1px #000;
+    border-style: none solid solid none;
+}
+#customers tr:first-child td:first-child { border-top-left-radius: 15px; }
+#customers tr:first-child td:last-child { border-top-right-radius: 15px; }
+#customers tr:last-child td:first-child { border-bottom-left-radius: 15px; }
+#customers tr:last-child td:last-child { border-bottom-right-radius: 15px; }
+#customers tr:first-child td { border-top-style: solid; }
+#customers tr td:first-child { border-left-style: solid};
+
+</style>
+</html>
